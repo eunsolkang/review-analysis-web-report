@@ -1,5 +1,24 @@
 # Collaboration Guide
 
+## How to Work
+Use the project tab on github to manage the schedule. Upload to-dos using issue template.(things_to_do.md)
+
+### Work Process
+1. Fork this repository.
+2. Create a new branch.
+
+> ### Branch Name Format
+> ```
+> <field>-#<number>
+> ```
+> * field: The field this work belongs to (ex. DATA, ML, FE, DOCS, PM)  
+> * number: Issue number with description of the task
+ 
+3. Work!
+4. When done, use PR template to pull request.
+
+
+
 ## Commit Message Format
 
 ```
@@ -23,7 +42,7 @@
   - refactor: Refactor code(:recycle: emoji)
   - test: Add or update tests(:white_check_mark: emoji)
   - chore: Fix typos, update grunt tasks etc(:hammer: emoji)
-  - ml: Add or update codes for machine learning(🧠 emoji)
+  - ml: Add or update codes for machine learning(:brain: emoji)
   - data: Add or update data acquisition codes / Add data files(:floppy_disk: emoji)
 - If you need more than one keyword or emoji to use, you should probably think twice!. This usally means you need to break this commit into more smaller commits; If thats not the case then separate each emoji with a space.
 
