@@ -43,6 +43,44 @@ class AmazonProduct:
             dict_writer.writeheader()
             dict_writer.writerows(self.reviews)
         return
+    
+    def readReviewsFromCsv(self, filePath):
+        f = open(filePath,'r')
+        rdr = csv.reader(f)
+        header = next(rdr)
+        for line in rdr:
+            reviewDict ={}
+            for i in range(len(header)):
+                reviewDict[header[i]] = line[i]
+            self.reviews.append(reviewDict)
+    
+    def review2str(self):
+        for review in self.reviews:
+            reviewStr = review['review']
+            reviewStr = reviewStr.replace('<br>','\n')
+            reviewStr = reviewStr.replace('.','\n')
+            reviewStr = reviewStr.replace('(','\n')
+            reviewStr = reviewStr.replace(')','\n')
+            reviewStr = reviewStr.replace(';','\n')
+            reviewStr = reviewStr.replace('!','\n')
+            reviewStr = reviewStr.replace('。','\n')
+
+            strs = reviewStr.split('\n')
+
+            strs = [v.strip() for v in strs]    
+            strs = [v for v in strs if len(v) != 0]
+            strs = [v for v in strs if len(v) != 1]
+            review['reviewStrs'] = strs
+        return
+    
+    def str2csv(self, filePath):
+        with open(filePath, 'w', newline='')  as output_file:
+            cw = csv.writer(output_file)
+            cw.writerow(['sentence','sentiment'])
+            for review in self.reviews:
+                for reviewStr in review['reviewStrs']:
+                    cw.writerow([reviewStr,''])
+        return
          
 
 def getWebDriver():
@@ -71,16 +109,19 @@ if __name__ == "__main__":
     shirt1.setWebDriver(driver)
     shirt1.crawlReviews()
     shirt1.reviews2csv("./reviews1.csv")
-
+    shirt1.review2str()
+    shirt1.str2csv("./review_seperated_by_sentences1.csv")
     
     shirt2 = AmazonProduct(link2)
     shirt2.setWebDriver(driver)
     shirt2.crawlReviews()
     shirt2.reviews2csv("./reviews2.csv")
-
+    shirt2.review2str()
+    shirt2.str2csv("./review_seperated_by_sentences2.csv")
     
     shirt3 = AmazonProduct(link3)
     shirt3.setWebDriver(driver)
     shirt3.crawlReviews()
     shirt3.reviews2csv("./reviews3.csv")
-
+    shirt3.review2str()
+    shirt3.str2csv("./review_seperated_by_sentences3.csv")
