@@ -26,8 +26,10 @@ def strings2csv(strings, filePath, encoding="utf-8"):
 
 strings = []
 
-strings += readStringsFromCsv("./review_seperated_by_sentences1.csv",encoding="cp949")
-strings += readStringsFromCsv("./review_seperated_by_sentences2.csv",encoding="cp949")
-strings += readStringsFromCsv("./review_seperated_by_sentences3.csv",encoding="latin_1")
+strings += readStringsFromCsv("./sentences123456_no_but.csv",encoding="utf-8")
+strings += readStringsFromCsv("./sentences123456_only_but_edited_done.csv",encoding="utf-8")
 
-strings2csv(strings,'./review_seperated_by_sentences_conclusion.csv')
+    
+
+
+strings2csv(strings,'./review_sentences_with_sentiment.csv')
