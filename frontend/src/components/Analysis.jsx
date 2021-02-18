@@ -5,6 +5,7 @@ import Review from "./Review";
 import Trend from "./Trend";
 import Keyword from "./Keyword";
 import Positioning from "./Positioning";
+import Consultant from "./Consultant";
 
 const AnalysisBlock = styled.div`
   
@@ -12,16 +13,18 @@ const AnalysisBlock = styled.div`
     margin: 0;
   }
   header{
+    position: fixed;
     height: 5.5rem;
     width: 100%;
-    background: rgb(73, 113, 229);
+    background: #001bc0;
+    //background: rgb(73, 113, 229);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    h3{
-      font-size: 2rem;
-      margin: 0 0 0 2rem;
-      color: white;
+    div img{
+      margin-left: 2rem;
+      width: 120px;
+      height: 80px;
     }
     .nav-list{
       display: flex;
@@ -46,7 +49,9 @@ const AnalysisBlock = styled.div`
   }
   main{
     //height: calc(100vh - 5.5rem);
+    
     padding: 2rem;
+    padding-top: 7.5rem;
     background: rgb(233, 238, 241);
   }
   
@@ -56,7 +61,7 @@ const AnalysisComponent = () => {
     return (
         <AnalysisBlock>
             <header>
-                <h3>Service Title</h3>
+                <div><img src={'img/logo-white.svg'}/></div>
                 <div className={'nav-list'}>
                     <nav>
                         Pos / Neg Review
@@ -75,7 +80,7 @@ const AnalysisComponent = () => {
                     </nav>
                 </div>
                 <div className={'button-group'}>
-                    <Button>
+                    <Button basic inverted>
                         Consultant Matching
                     </Button>
                 </div>
@@ -85,6 +90,7 @@ const AnalysisComponent = () => {
                 <Trend></Trend>
                 <Keyword></Keyword>
                 <Positioning></Positioning>
+                <Consultant/>
             </main>
         </AnalysisBlock>
     )
