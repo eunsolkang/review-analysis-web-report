@@ -1,0 +1,83 @@
+{
+	"fit": [
+		{
+			"id": 9469,
+			"sentence": "He is 16 and 6 foot 3, so if you are ordering for someone tall be cautious",
+			"sentiment": "0"
+		},
+		{
+			"id": 9946,
+			"sentence": "Fit great",
+			"sentiment": "1"
+		},
+		{
+			"id": 10509,
+			"sentence": "The shirt fits Perfect",
+			"sentiment": "1"
+		},
+		{
+			"id": 10882,
+			"sentence": "remember to size up to make a shirt not feel skin tight 2-3\" for tighter fit, 4 - 5 regular fit, 6+ baggy",
+			"sentiment": "0"
+		},
+		{
+			"id": 14050,
+			"sentence": "but i have never bought a shirt that fits this well",
+			"sentiment": "1"
+		}
+	],
+	"color": [
+		{
+			"id": 1427,
+			"sentence": "Great shirt - bought it for my husband for a wedding, it wasn_ see-thru and a great color",
+			"sentiment": "1"
+		},
+		{
+			"id": 5970,
+			"sentence": "Great purchase, materials great, husband is very happy",
+			"sentiment": "1"
+		},
+		{
+			"id": 6786,
+			"sentence": "It's a little tight in the chest",
+			"sentiment": "2"
+		},
+		{
+			"id": 252,
+			"sentence": "This is a really nice looking shirt",
+			"sentiment": "1"
+		},
+		{
+			"id": 10930,
+			"sentence": "It's a regular fabric dressy shirt with a denim look to it",
+			"sentiment": "0"
+		}
+	],
+	"material": [
+		{
+			"id": 2386,
+			"sentence": "Quality feel",
+			"sentiment": "1"
+		},
+		{
+			"id": 8837,
+			"sentence": "Very comfortable, easy to wash with minimal ironing",
+			"sentiment": "1"
+		},
+		{
+			"id": 9432,
+			"sentence": "Its ok",
+			"sentiment": "1"
+		},
+		{
+			"id": 7988,
+			"sentence": "Did not like material",
+			"sentiment": "2"
+		},
+		{
+			"id": 11435,
+			"sentence": "Fabric is kinda thick",
+			"sentiment": "0"
+		}
+	]
+}
