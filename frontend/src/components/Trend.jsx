@@ -306,6 +306,24 @@ const Trend = () => {
                     ]}
                     layout={{width: 1280, height: 580, title: 'relatedTopicsTop'}}
                 />
+                <Plot
+                    data={[
+                        {
+                            type: 'choropleth',
+                            locationmode: 'country names',
+                            locations: [...interestByRegion.interestByRegion.map(region => region.region)],
+                            z: [...interestByRegion.interestByRegion.map(region => region.value)],
+                            text: [...interestByRegion.interestByRegion.map(region => region.region)],
+                            autocolorscale: true
+                        },
+                    ]}
+                    layout={{width: 1280, height: 580, title: 'interestByRegion',
+                        geo: {
+                            projection: {
+                                type: 'robinson'
+                            }
+                        }}}
+                />
             </section>
         </TrendBlock>
     )
