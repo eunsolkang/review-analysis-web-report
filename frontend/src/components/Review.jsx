@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Plot from 'react-plotly.js';
+
 const ReviewBlock = styled.div`
     h3{
       color: #222;
@@ -32,10 +34,17 @@ const Review = () => {
             </h3>
             <section>
                 <article>
-                    <h4>
-                        Word Cloud
-                    </h4>
-                    <img src={'/img/wordcloud.png'}/>
+                    <Plot
+                        data={[
+                            {
+                                type: 'bar',
+                                x: [20, 14, 23],
+                                y: ['great', 'normal', 'bad'],
+                                orientation: 'h'
+                            },
+                        ]}
+                        layout={ {width: 500, height: 400, title: 'Pos / Neg Review'} }
+                    />
                 </article>
                 <article>
                     <h4>
