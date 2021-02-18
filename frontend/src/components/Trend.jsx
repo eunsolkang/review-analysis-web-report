@@ -10,6 +10,10 @@ const TrendBlock = styled.div`
       color: #222;
     }
     section{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       margin-top: 1rem;
       //height: 180px;
       border-radius: 10px;
@@ -164,6 +168,109 @@ const interestOverTime = {
     }, {"time": "Jan 31 – Feb 6, 2021", "value": 65}, {"time": "Feb 7 – 13, 2021", "value": 59}]
 }
 
+const relatedTopicsTop = {
+    "relatedTopicsTop": [{
+        "topic": "T-shirt(Clothing)",
+        "value": "100"
+    }, {"topic": "Shirt(Garment)", "value": "68"}, {
+        "topic": "Shoulder(Topic)",
+        "value": "12"
+    }, {"topic": "Moschino(Fashion label)", "value": "10"}, {
+        "topic": "Sleeve(Topic)",
+        "value": "2"
+    }, {"topic": "Amiri(Fashion label)", "value": "1"}, {
+        "topic": "Burberry(Topic)",
+        "value": "<1"
+    }, {"topic": "Vlone(Topic)", "value": "<1"}, {"topic": "Marcelo Burlon(Topic)", "value": "<1"}],
+    "relatedTopicsRising": [{"topic": "T-shirt(Clothing)", "value": "100"}, {
+        "topic": "Shirt(Garment)",
+        "value": "68"
+    }, {"topic": "Shoulder(Topic)", "value": "12"}, {
+        "topic": "Moschino(Fashion label)",
+        "value": "10"
+    }, {"topic": "Sleeve(Topic)", "value": "2"}, {
+        "topic": "Amiri(Fashion label)",
+        "value": "1"
+    }, {"topic": "Burberry(Topic)", "value": "<1"}, {
+        "topic": "Vlone(Topic)",
+        "value": "<1"
+    }, {"topic": "Marcelo Burlon(Topic)", "value": "<1"}]
+}
+
+const relatedQueriesTop = {
+    "relatedQueriesTop": [{"query": "versace shirt", "value": "100"}, {
+        "query": "dior shirt",
+        "value": "88"
+    }, {"query": "t shirt versace", "value": "56"}, {
+        "query": "armani shirt",
+        "value": "54"
+    }, {"query": "moschino shirt", "value": "53"}, {"query": "white shirt", "value": "50"}, {
+        "query": "t shirt dior",
+        "value": "48"
+    }, {"query": "louis vuitton shirt", "value": "48"}, {
+        "query": "shirt dress",
+        "value": "45"
+    }, {"query": "t shirt armani", "value": "40"}, {
+        "query": "moschino t shirt",
+        "value": "40"
+    }, {"query": "givenchy shirt", "value": "33"}, {
+        "query": "gucci shirt",
+        "value": "31"
+    }, {"query": "off shoulder shirt", "value": "30"}, {
+        "query": "dolce gabbana shirt",
+        "value": "30"
+    }, {"query": "dsquared shirt", "value": "28"}, {
+        "query": "tee shirt",
+        "value": "26"
+    }, {"query": "christian dior shirt", "value": "26"}, {
+        "query": "louis vuitton t shirt",
+        "value": "24"
+    }, {"query": "alexander mcqueen shirt", "value": "23"}, {
+        "query": "burberry shirt",
+        "value": "22"
+    }, {"query": "t shirt dsquared", "value": "22"}, {
+        "query": "t shirt dolce gabbana",
+        "value": "22"
+    }, {"query": "dior t shirt mens", "value": "5"}, {"query": "dior atelier shirt", "value": "5"}],
+    "relatedQueriesRising": [{"query": "air dior shirt", "value": "Breakout"}, {
+        "query": "koton t shirt erkek",
+        "value": "Breakout"
+    }, {"query": "how to cut the sleeves off a shirt", "value": "Breakout"}, {
+        "query": "3 pack hugo boss t shirt",
+        "value": "Breakout"
+    }, {"query": "cold shoulder long sleeve shirt", "value": "+2,900%"}, {
+        "query": "how to get lint off black shirt",
+        "value": "+2,850%"
+    }, {"query": "how to cut sleeves off a shirt", "value": "+600%"}, {
+        "query": "t shirt calvin klein homme",
+        "value": "+350%"
+    }, {"query": "palm angels", "value": "+300%"}, {
+        "query": "polo ralph lauren",
+        "value": "+250%"
+    }, {"query": "dior t shirt mens", "value": "+250%"}, {
+        "query": "moschino bear t shirt",
+        "value": "+250%"
+    }, {"query": "dior shirt men", "value": "+250%"}, {
+        "query": "versace collection t shirt",
+        "value": "+250%"
+    }, {"query": "dior atelier shirt", "value": "+200%"}, {
+        "query": "how to style white shirt",
+        "value": "+190%"
+    }, {"query": "ysl oversized t shirt", "value": "+190%"}, {
+        "query": "jean shirt outfit",
+        "value": "+190%"
+    }, {"query": "t shirt christian dior atelier", "value": "+180%"}, {
+        "query": "dior shirt women",
+        "value": "+170%"
+    }, {"query": "christian dior atelier shirt", "value": "+130%"}, {
+        "query": "dior atelier t shirt",
+        "value": "+130%"
+    }, {"query": "christian dior shirt", "value": "+130%"}, {
+        "query": "versace collection shirt",
+        "value": "+110%"
+    }, {"query": "dior shirt", "value": "+110%"}]
+}
+
 
 const Trend = () => {
     console.log(moment("Jan 31").format('MM-DD'))
@@ -179,7 +286,7 @@ const Trend = () => {
                             x: [...interestOverTime.interestOverTime.map(element => {
                                 const splitList = element.time.split(' ');
                                 // console.log(splitList);
-                                return moment("2021 " +splitList[0] + " " + splitList[1]).format('YYYY-MM-DD');
+                                return moment("2021 " + splitList[0] + " " + splitList[1]).format('YYYY-MM-DD');
                             })],
                             y: [...interestOverTime.interestOverTime.map(time => time.value)],
                             type: 'scatter',
@@ -187,7 +294,17 @@ const Trend = () => {
                             marker: {color: 'red'},
                         },
                     ]}
-                    layout={ {width: 1280, height: 580, title: 'InterestOverTime'} }
+                    layout={{width: 1280, height: 580, title: 'InterestOverTime'}}
+                />
+                <Plot
+                    data={[
+                        {
+                            type: 'bar',
+                            x: [...relatedTopicsTop.relatedTopicsTop.map(topic => topic.topic)],
+                            y: [...relatedTopicsTop.relatedTopicsTop.map(topic => topic.value)]
+                        },
+                    ]}
+                    layout={{width: 1280, height: 580, title: 'relatedTopicsTop'}}
                 />
             </section>
         </TrendBlock>

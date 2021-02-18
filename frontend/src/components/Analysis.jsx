@@ -13,6 +13,7 @@ const AnalysisBlock = styled.div`
     margin: 0;
   }
   header{
+    z-index: 1000;
     position: fixed;
     height: 5.5rem;
     width: 100%;
