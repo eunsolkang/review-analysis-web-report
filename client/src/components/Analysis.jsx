@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import styled from 'styled-components';
 import {Button} from "semantic-ui-react";
 import Review from "./Review";
@@ -25,7 +25,7 @@ const AnalysisBlock = styled.div`
     div img{
       margin-left: 2rem;
       width: 120px;
-      height: 80px;
+      //height: 80px;
     }
     .nav-list{
       display: flex;
@@ -51,7 +51,7 @@ const AnalysisBlock = styled.div`
   main{
     //height: calc(100vh - 5.5rem);
     
-    padding: 2rem;
+    padding: 4rem;
     padding-top: 7.5rem;
     background: rgb(233, 238, 241);
   }
@@ -59,24 +59,29 @@ const AnalysisBlock = styled.div`
 `;
 
 const AnalysisComponent = () => {
+    const scrollTo = useCallback((tag) => {
+        let location = document.querySelector(tag).offsetTop;
+        window.scrollTo({top: location, behavior: 'smooth'});
+    }, []);
+
     return (
         <AnalysisBlock>
             <header>
-                <div><img src={'img/logo-white.svg'}/></div>
+                <div><img src={'img/logo-white.png'}/></div>
                 <div className={'nav-list'}>
-                    <nav>
+                    <nav onClick={()=>{scrollTo('#p1')}}>
                         Pos / Neg Review
                     </nav>
-                    <nav>
+                    <nav onClick={()=>{scrollTo('#p2')}}>
                         Trend
                     </nav>
-                    <nav>
+                    <nav onClick={()=>{scrollTo('#p3')}}>
                         Detailed Analysis
                     </nav>
-                    <nav>
+                    <nav onClick={()=>{scrollTo('#p4')}}>
                         Product Positioning
                     </nav>
-                    <nav>
+                    <nav onClick={()=>{scrollTo('#p5')}}>
                         Business Counseling
                     </nav>
                 </div>
@@ -87,11 +92,21 @@ const AnalysisComponent = () => {
                 </div>
             </header>
             <main>
-                <Review></Review>
-                <Trend></Trend>
-                <Keyword></Keyword>
-                <Positioning></Positioning>
-                <Consultant/>
+                <div id={'p1'}>
+                    <Review></Review>
+                </div>
+                <div id={'p2'}>
+                    <Trend></Trend>
+                </div>
+                <div id={'p3'}>
+                    <Keyword></Keyword>
+                </div>
+                <div id={'p4'}>
+                    <Positioning></Positioning>
+                </div>
+                <div id={'p5'}>
+                    <Consultant/>
+                </div>
             </main>
         </AnalysisBlock>
     )
