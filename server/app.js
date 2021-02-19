@@ -12,6 +12,7 @@ app.get('/', function(req, res){
 });
 
 app.use('/api', require('./api/router'));
+app.use('/file', express.static('tmpData'));
 
 module.exports = app;
 
