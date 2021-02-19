@@ -273,7 +273,9 @@ const relatedQueriesTop = {
 
 
 const Trend = () => {
-    console.log(moment("Jan 31").format('MM-DD'))
+    // console.log(moment("Jan 31").format('MM-DD'))
+    const width = window.innerWidth;
+
     return (
         <TrendBlock>
             <h3>
@@ -294,7 +296,7 @@ const Trend = () => {
                             marker: {color: 'red'},
                         },
                     ]}
-                    layout={{width: 1280, height: 580, title: 'InterestOverTime'}}
+                    layout={{width: width - 120, height: 580, title: 'InterestOverTime'}}
                 />
                 <Plot
                     data={[
@@ -304,7 +306,7 @@ const Trend = () => {
                             y: [...relatedTopicsTop.relatedTopicsTop.map(topic => topic.value)]
                         },
                     ]}
-                    layout={{width: 1280, height: 580, title: 'relatedTopicsTop'}}
+                    layout={{width: width - 120, height: 580, title: 'relatedTopicsTop'}}
                 />
                 <Plot
                     data={[
@@ -317,7 +319,7 @@ const Trend = () => {
                             autocolorscale: true
                         },
                     ]}
-                    layout={{width: 1280, height: 580, title: 'interestByRegion',
+                    layout={{width: width - 120, height: 580, title: 'interestByRegion',
                         geo: {
                             projection: {
                                 type: 'robinson'

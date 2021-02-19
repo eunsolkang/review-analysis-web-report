@@ -154,7 +154,7 @@ const Keyword = () => {
                                 {
                                     keyword[1].map(item => {
                                         return (
-                                            <div className={`sentence-item ${item.sentiment === "2" ? "negative" : item.sentiment === "1" ? "normal" : "positive"}`}>
+                                            <div className={`sentence-item ${item.sentiment === "2" ? "negative" : item.sentiment === "1" ? "positive" : "normal"}`}>
                                                 {item.sentence}
                                             </div>
                                         )
