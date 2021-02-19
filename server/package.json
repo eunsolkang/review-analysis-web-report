@@ -1,0 +1,19 @@
+{
+  "name": "troper-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/www.js",
+  "scripts": {
+    "start": "node bin/www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "swagger": "^0.7.5",
+    "swagger-jsdoc": "^7.0.0-rc.2",
+    "swagger-ui-express": "^4.1.6"
+  }
+}
