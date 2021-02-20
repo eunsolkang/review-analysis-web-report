@@ -145,16 +145,16 @@ const Keyword = () => {
             </h3>
             <section>
                 {
-                    Object.entries(keywordData).map((keyword) => {
+                    Object.entries(keywordData).map((keyword, j) => {
                         return(
-                            <div className={'keyword-item'}>
+                            <div className={'keyword-item'} key={j}>
                                 <h3 className={'title'}>
                                     #{keyword[0]}
                                 </h3>
                                 {
-                                    keyword[1].map(item => {
+                                    keyword[1].map((item, i) => {
                                         return (
-                                            <div className={`sentence-item ${item.sentiment === "2" ? "negative" : item.sentiment === "1" ? "positive" : "normal"}`}>
+                                            <div key={i + '' + j} className={`sentence-item ${item.sentiment === "2" ? "negative" : item.sentiment === "1" ? "positive" : "normal"}`}>
                                                 {item.sentence}
                                             </div>
                                         )

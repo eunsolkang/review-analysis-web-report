@@ -20,13 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7697c2bc-e9a6-4966-ab13-c808fde55002" name="Default Changelist" comment="🔨 features: Create App.js and other file #4">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/../client/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/public/img/logo-white.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../client/public/img/logo-white.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/Analysis.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/Analysis.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/review-analysis-web-report.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/Consultant.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/Consultant.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/components/Keyword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/Keyword.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/Review.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/Review.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/components/Trend.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/Trend.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
