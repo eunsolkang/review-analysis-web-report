@@ -26,37 +26,37 @@ const ConsultantBlock = styled.div`
 `;
 const stateOptions = [
     {
-        key: 'aa',
+        key: '1',
         text: 'Arts & Crafts',
         value: 'Arts & Crafts',
     },
     {
-        key: 'aa',
+        key: '2',
         text: 'Automotive',
         value: 'Automotive',
     },
     {
-        key: 'aa',
+        key: '3',
         text: 'Baby',
         value: 'Baby',
     },
     {
-        key: 'aa',
+        key: '4',
         text: 'Beauty & Personal Care',
         value: 'Beauty & Personal Care',
     },
     {
-        key: 'aa',
+        key: '5',
         text: 'Books',
         value: 'Books',
     },
     {
-        key: 'aa',
+        key: '6',
         text: 'Arts & Crafts',
         value: 'Arts & Crafts',
     },
     {
-        key: 'aa',
+        key: '7',
         text: 'Computers',
         value: 'Computers',
     },
@@ -186,7 +186,7 @@ const Consultant = () => {
                 <Input placeholder={"Expected Results from the Project (Name at least 1-3) "}></Input>
                 <Input placeholder={"Expected Project Duration "}></Input>
                 <Input placeholder={"Client Signature"}></Input>
-                <Button primary={'true'}>Submit</Button>
+                <Button primary>Submit</Button>
             </div>
         </ConsultantBlock>
     )

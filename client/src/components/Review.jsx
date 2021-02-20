@@ -42,19 +42,19 @@ const Review = () => {
             <section>
                 <article>
                     <h4>
-                        All Word
+                        Overall
                     </h4>
                     <img src={'/img/wordcloud1.png'}/>
                 </article>
                 <article>
                     <h4>
-                        Negative Word
+                        Negative Words
                     </h4>
                     <img src={'/img/wordcloud2.png'}/>
                 </article>
                 <article>
                     <h4>
-                        Positive Word
+                        Positive Words
                     </h4>
                     <img src={'/img/wordcloud3.png'}/>
                 </article>

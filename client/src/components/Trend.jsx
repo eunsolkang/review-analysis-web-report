@@ -296,7 +296,7 @@ const Trend = () => {
                             marker: {color: 'red'},
                         },
                     ]}
-                    layout={{width: width - 120, height: 580, title: 'InterestOverTime'}}
+                    layout={{width: width - 120, height: 580, title: 'Interest Over Time'}}
                 />
                 <Plot
                     data={[
@@ -306,7 +306,7 @@ const Trend = () => {
                             y: [...relatedTopicsTop.relatedTopicsTop.map(topic => topic.value)]
                         },
                     ]}
-                    layout={{width: width - 120, height: 580, title: 'relatedTopicsTop'}}
+                    layout={{width: width - 120, height: 580, title: 'Related Topics Top'}}
                 />
                 <Plot
                     data={[
@@ -319,7 +319,7 @@ const Trend = () => {
                             autocolorscale: true
                         },
                     ]}
-                    layout={{width: width - 120, height: 580, title: 'interestByRegion',
+                    layout={{width: width - 120, height: 580, title: 'Interest By Region',
                         geo: {
                             projection: {
                                 type: 'robinson'
