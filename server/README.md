@@ -2,7 +2,7 @@
 This is API server for troper service
 
 # How to install
-1. install chrome via terminal
+1. Install chrome via terminal
     ``` bash
     $ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     $ sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/lin
@@ -10,16 +10,16 @@ This is API server for troper service
     $ sudo apt-get update
     $ sudo apt-get install google-chrome-stable
     ```
-2. setting web driver
-   1. check chrome version
+2. Setting web driver
+   1. Check chrome version
       ``` bash
       $ google-chrome --version
       ```
 
-   2. download web driver file      
+   2. Download web driver file      
       https://chromedriver.chromium.org/downloads
 
-   3. configure code
+   3. Configure code
       
       ``` py
       # api/pyCode/crawlReview.py
@@ -35,16 +35,16 @@ This is API server for troper service
     ```
 
 ## If done
-server is running on 0.0.0.0:8080
+API Server is running on 0.0.0.0:8080
 
 # API Document
 
 ## (1) POST /api/product
-### parameter
+### Parameter
 - url parameter
   > ?platform=\<string\>&link=\<string\>
-  - platform : 현재는 amazon 만 지원 
-  - link : 아마존 product 링크 (url encoded)
+  - platform : for now only amazon is supported
+  - link : Amazon product link (url encoded)
   
 ### Result
 - Success case
@@ -65,10 +65,10 @@ server is running on 0.0.0.0:8080
     }
     ```
 ## (2) GET /api/reviewAnalysis
-### parameter
+### Parameter
 - url parameter
   > ?token=\<string\>
-  - token : (1)에서 반환된 token
+  - token : Token returned from (1)
 ### Result
 - Success case
   - HTTP Status : 200
@@ -94,10 +94,10 @@ server is running on 0.0.0.0:8080
     ```
 
 ## (3) GET /api/trendAnalysis
-### parameter
+### arameter
 - url parameter
   > ?token=\<string\>&category=\<string\>&product_type=\<string\>
-  - token : (1)에서 반환된 token
+  - token : Token returned from (1)
   - category : 'fasion', ... 
   - product_type : 'shirt', ...
 ## Result
