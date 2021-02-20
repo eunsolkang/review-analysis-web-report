@@ -73,20 +73,17 @@ const AnalysisComponent = () => {
                         Pos / Neg Review
                     </nav>
                     <nav onClick={()=>{scrollTo('#p2')}}>
-                        Trend
+                        Trend Analysis
                     </nav>
                     <nav onClick={()=>{scrollTo('#p3')}}>
-                        Detailed Analysis
+                        Keyword
                     </nav>
                     <nav onClick={()=>{scrollTo('#p4')}}>
-                        Product Positioning
-                    </nav>
-                    <nav onClick={()=>{scrollTo('#p5')}}>
-                        Business Counseling
+                        Positioning
                     </nav>
                 </div>
-                <div className={'button-group'}>
-                    <Button basic inverted>
+                <div className={'button-group'} >
+                    <Button basic inverted onClick={()=>{scrollTo('#p5')}}>
                         Consultant Matching
                     </Button>
                 </div>
