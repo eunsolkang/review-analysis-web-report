@@ -9,7 +9,7 @@ function App() {
         if(0 > filter.indexOf(navigator.platform.toLowerCase())){
             return (
                 <div>
-                    모바일에서는 접근할 수 없습니다!
+                    The mobile environment is not supported. Please connect to the PC!
                 </div>
             )
         }
