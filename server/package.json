@@ -11,9 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "google-trends-api": "^4.9.2",
     "jsonwebtoken": "^8.5.1",
+    "python-shell": "^2.0.3",
     "swagger": "^0.7.5",
     "swagger-jsdoc": "^7.0.0-rc.2",
-    "swagger-ui-express": "^4.1.6"
+    "swagger-ui-express": "^4.1.6",
+    "uuid": "^8.3.2"
   }
 }
