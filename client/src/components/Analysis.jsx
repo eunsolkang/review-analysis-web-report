@@ -6,6 +6,7 @@ import Trend from "./Trend";
 import Keyword from "./Keyword";
 import Positioning from "./Positioning";
 import Consultant from "./Consultant";
+import Distribution from "./Distribution";
 
 const AnalysisBlock = styled.div`
   
@@ -13,7 +14,7 @@ const AnalysisBlock = styled.div`
     margin: 0;
   }
   header{
-    z-index: 1000;
+    z-index: 100000 !important;
     position: fixed;
     height: 5.5rem;
     width: 100%;
@@ -79,6 +80,9 @@ const AnalysisComponent = () => {
                         Keyword
                     </nav>
                     <nav onClick={()=>{scrollTo('#p4')}}>
+                        Review Score
+                    </nav>
+                    <nav onClick={()=>{scrollTo('#p5')}}>
                         Positioning
                     </nav>
                 </div>
@@ -99,9 +103,12 @@ const AnalysisComponent = () => {
                     <Keyword></Keyword>
                 </div>
                 <div id={'p4'}>
-                    <Positioning></Positioning>
+                    <Distribution></Distribution>
                 </div>
                 <div id={'p5'}>
+                    <Positioning></Positioning>
+                </div>
+                <div id={'p6'}>
                     <Consultant/>
                 </div>
             </main>

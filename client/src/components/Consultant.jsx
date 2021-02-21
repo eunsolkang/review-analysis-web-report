@@ -186,7 +186,9 @@ const Consultant = () => {
                 <Input placeholder={"Expected Results from the Project (Name at least 1-3) "}></Input>
                 <Input placeholder={"Expected Project Duration "}></Input>
                 <Input placeholder={"Client Signature"}></Input>
-                <Button primary>Submit</Button>
+                <Button primary onClick={()=>{
+                    alert('Email sent!')
+                }}>Submit</Button>
             </div>
         </ConsultantBlock>
     )
