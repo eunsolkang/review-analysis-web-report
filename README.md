@@ -31,6 +31,11 @@ Through the insights derived from the review data analysis, businesses can respo
 <img src="assets/service flow.png" width="100%" alt="service flow" />
 
 
+## Technology Stack
+**Check out the [wiki](https://github.com/eunsolkang/review-analysis-web-report/wiki) for more details on the developments.**
+<img src="assets/tech stack.png" width="100%" alt="tech stack" />
+
+
 ## Team Members
 We made a ✨[collaboration guide](collaborationGuide.md)✨ and collaborated according to the collaboration guide.
 
