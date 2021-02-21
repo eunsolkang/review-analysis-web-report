@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import styled from 'styled-components';
 import {Button} from "semantic-ui-react";
 import Review from "./Review";
@@ -65,6 +65,8 @@ const AnalysisComponent = () => {
         window.scrollTo({top: location, behavior: 'smooth'});
     }, []);
 
+   
+    
     return (
         <AnalysisBlock>
             <header>

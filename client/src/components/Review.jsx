@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Plot from 'react-plotly.js';
 import {baseURL, getReviewAnalysis} from "../api";
 import {Dimmer, Image, Loader, Segment} from "semantic-ui-react";
+import {useRouter} from '../useRouter';
+
 
 const ReviewBlock = styled.div`
     h3{
@@ -41,13 +43,16 @@ const ReviewBlock = styled.div`
 const Review = () => {
     const [data, setData] = useState();
     const [total, setTotal] = useState();
+    const router = useRouter();
     useEffect(()=>{
         getData();
     }, []);
 
     const getData = async () => {
-        const token = '2a04dc20-7333-11eb-ae9e-758a5443ae76';
-        const res = await getReviewAnalysis({token});
+        console.log(router.query);
+        const {token} = router.query;
+        const t = token ? token : '2a04dc20-7333-11eb-ae9e-758a5443ae76';
+        const res = await getReviewAnalysis({token : t});
         setData(res.data);
     }
 

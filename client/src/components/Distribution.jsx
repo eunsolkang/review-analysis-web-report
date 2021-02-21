@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {getReviewAnalysis} from "../api";
 import {Image, Loader, Dimmer, Progress, Rating, Segment} from "semantic-ui-react";
+import {useRouter} from '../useRouter';
 
 const DistributionBlock = styled.div`
  margin-top: 2rem;
@@ -41,6 +42,7 @@ const DistributionBlock = styled.div`
 const Distribution = () => {
     const [data, setData] = useState();
     const [total, setTotal] = useState();
+    const router = useRouter();
 
     useEffect(()=>{
         getData();
@@ -55,8 +57,9 @@ const Distribution = () => {
     }, [data]);
 
     const getData = async () => {
-        const token = '2a04dc20-7333-11eb-ae9e-758a5443ae76';
-        const res = await getReviewAnalysis({token});
+        const {token, category, productType} = router.query;
+        const t = token ? token : '2a04dc20-7333-11eb-ae9e-758a5443ae76';
+        const res = await getReviewAnalysis({token: t});
         setData(res.data.score_count);
     }
     return (
