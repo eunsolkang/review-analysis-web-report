@@ -25,3 +25,25 @@ The "trop.er" provides web report services that analyzes review data and visuali
 
 ### Expected Effects
 Through the insights derived from the review data analysis, businesses can respond to their consumers in an appropriate manner that will contribute to their business image. A quick and precise response to the consumers’ feedbacks not only attract new consumers to the brand but also coverts normal consumers to loyal ones, thus adding to the company’s efforts for expanding the business. However, trop.er does not stop there. Provided trend reports will enable the firms to catch up with the ever-changing trend in the e-commerce market and keep up with the overall consumer need. Cooperation with consultant expertise will help businesses to diagnose their current situation in a critical manner, and provide guidelines that contribute to one’s business model revision. 
+
+
+## Service Flow
+<img src="assets/service flow.png" width="100%" alt="service flow" />
+
+
+## Technology Stack
+**Check out the [wiki](https://github.com/eunsolkang/review-analysis-web-report/wiki) for more details on the developments.**
+<img src="assets/tech stack.png" width="100%" alt="tech stack" />
+
+
+## Team Members
+We made a ✨[collaboration guide](collaborationGuide.md)✨ and collaborated according to the collaboration guide.
+
+|Name|Role|
+|---|---|
+|[Eun Sol Kang](https://github.com/eunsolkang)|Frontend Developer|
+|[RaDoHoon](https://github.com/citron0137)|Backend Developer|
+|[Chorom ham](https://github.com/chorom-ham)|Machine Learning Engineer|
+|[Lee Hyunmin](https://github.com/imhyunming)|Project Manager|
+|[Bomin Kim](https://github.com/boggumi)|Project Manager / Interface Designer|
+|[Joon Ha Hwang](https://github.com/dragonjzxc)|Project Manager / Logo Designer| 

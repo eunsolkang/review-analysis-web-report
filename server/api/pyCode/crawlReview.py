@@ -19,8 +19,11 @@ class AmazonProduct:
         if(hasattr(self,'webDriver') == False):
             print("plz set driver first")
             return
+        print("error")
+        #print(self.url)
         self.webDriver.get(self.url)
-        reviewpage = self.webDriver.find_element_by_css_selector('#reviews-medley-footer > div.a-row.a-spacing-medium > a') #TODO change sometime 
+        print(self.webDriver.page_source.replace('\n','')) 
+        reviewpage = self.webDriver.find_element_by_css_selector('#cr-pagination-footer-0 > a') #TODO change sometime 
         reviewpage.click()
         while True:
             elems = self.webDriver.find_elements_by_css_selector("div[data-hook='review']")
@@ -103,8 +106,8 @@ class AmazonProduct:
         return
          
 
+driverPath = '/home/ubuntu/review-analysis-web-report/assets/chromedriver'
 
-driverPath = '/home/citron0137/kpmg/chromedriver'#TODO put your driver path
 def getWebDriver():
     driver = webdriver.Chrome(driverPath) 
     driver.implicitly_wait(3)
@@ -116,7 +119,9 @@ def getHeadlessWebDriver():
     options.add_argument('window-size=1920x1080')
     options.add_argument("disable-gpu")
     options.add_argument("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36")
-    driver = webdriver.Chrome(driverPath, options=options) #TODO put your driver path
+    PROXY ="210.103.3.169:8080"
+    options.add_argument('--proxy-server=%s' % PROXY)
+    driver = webdriver.Chrome(driverPath, options=options) 
     driver.implicitly_wait(3)
     return driver
 
