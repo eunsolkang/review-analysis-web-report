@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {getKeyword, getReviewAnalysis} from "../api";
 import {Dimmer, Image, Loader, Segment} from "semantic-ui-react";
+import {useRouter} from '../useRouter';
 const KeywordBlock = styled.div`
+
     margin-top: 2rem; 
     h3{
       color: #222;
@@ -59,8 +61,7 @@ const KeywordBlock = styled.div`
 `;
 
 const Keyword = () => {
-    const category = 'fashion';
-    const productType = 'shirt';
+    const router = useRouter();
 
     const [data, setData] = useState();
     useEffect(()=>{
@@ -69,8 +70,12 @@ const Keyword = () => {
 
 
     const getData = async () => {
-        const token = '2a04dc20-7333-11eb-ae9e-758a5443ae76';
-        const res = await getKeyword({token, category, productType});
+        const {token, category, productType} = router.query;
+        const t = token ? token : '2a04dc20-7333-11eb-ae9e-758a5443ae76';
+        const c = category ? category : 'fashion';
+        const p = productType ? productType : 'shirt';
+
+        const res = await getKeyword({token: t, category : c, productType : p});
         setData(res.data.relevant_reviews);
     }
 

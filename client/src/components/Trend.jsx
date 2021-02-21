@@ -4,6 +4,7 @@ import Plot from 'react-plotly.js';
 import moment from "moment";
 import {getTrend} from "../api";
 import {Dimmer, Loader, Segment} from "semantic-ui-react";
+import {useRouter} from '../useRouter';
 
 
 const TrendBlock = styled.div`
@@ -32,18 +33,20 @@ const Trend = () => {
     const width = window.innerWidth;
 
     const [data, setData] = useState();
-    const category = 'fashion';
-    const productType = 'shirt';
+    const router = useRouter();
+
 
     useEffect(()=>{
         getData();
     }, []);
 
     const getData = async () => {
-        const token = '2a04dc20-7333-11eb-ae9e-758a5443ae76';
-
+        const {token, category, productType} = router.query;
+        const t = token ? token : '2a04dc20-7333-11eb-ae9e-758a5443ae76';
+        const c = category ? category : 'fashion';
+        const p = productType ? productType : 'shirt';
         try{
-            const res = await getTrend({token, category, productType});
+            const res = await getTrend({token : t, category : c, productType : p});
             console.log(res);
             setData(res.data);
         }catch (e){
