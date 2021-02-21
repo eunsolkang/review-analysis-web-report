@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Plot from 'react-plotly.js';
 import moment from "moment";
-import {getReviewAnalysis, getTrend} from "../api";
+import {getTrend} from "../api";
 import {Dimmer, Loader, Segment} from "semantic-ui-react";
 
 
@@ -44,13 +44,15 @@ const Trend = () => {
 
         try{
             const res = await getTrend({token, category, productType});
+            console.log(res);
             setData(res.data);
         }catch (e){
-            alert(e);
+            console.log(e);
+            // alert(e);
         }
 
     }
-
+    console.log( data && data.related_topics);
     return (
         <TrendBlock>
             <h3>
@@ -59,49 +61,62 @@ const Trend = () => {
             {
                 data ? (
                     <section>
-                        <Plot
-                            data={[
-                                {
-                                    x: [...data.interestOverTime.interestOverTime.map(element => {
-                                        const splitList = element.time.split(' ');
-                                        return moment("2021 " + splitList[0] + " " + splitList[1]).format('YYYY-MM-DD');
-                                    })],
-                                    y: [...data.interestOverTime.interestOverTime.map(time => time.value)],
-                                    type: 'scatter',
-                                    mode: 'lines+markers',
-                                    marker: {color: 'red'},
-                                },
-                            ]}
-                            layout={{width: width - 120, height: 580, title: 'Interest Over Time'}}
-                        />
-                        <Plot
-                            data={[
-                                {
-                                    type: 'bar',
-                                    x: [...data.relatedTopicsTop.relatedTopicsTop.map(topic => topic.topic)],
-                                    y: [...data.relatedTopicsTop.relatedTopicsTop.map(topic => topic.value)]
-                                },
-                            ]}
-                            layout={{width: width - 120, height: 580, title: 'Related Topics Top'}}
-                        />
-                        <Plot
-                            data={[
-                                {
-                                    type: 'choropleth',
-                                    locationmode: 'country names',
-                                    locations: [...data.interestByRegion.interestByRegion.map(region => region.region)],
-                                    z: [...data.interestByRegion.interestByRegion.map(region => region.value)],
-                                    text: [...data.interestByRegion.interestByRegion.map(region => region.region)],
-                                    autocolorscale: true
-                                },
-                            ]}
-                            layout={{width: width - 120, height: 580, title: 'Interest By Region',
-                                geo: {
-                                    projection: {
-                                        type: 'robinson'
-                                    }
-                                }}}
-                        />
+                        {
+                            data.interest_over_time && (
+                                <Plot
+                                    data={[
+                                        {
+                                            x: [...data.interest_over_time.map(element => {
+                                                const splitList = element.period.split(' ');
+                                                return moment("2021 " + splitList[0] + " " + splitList[1]).format('YYYY-MM-DD');
+                                            })],
+                                            y: [...data.interest_over_time.map(time => time.score)],
+                                            type: 'scatter',
+                                            mode: 'lines+markers',
+                                            marker: {color: 'red'},
+                                        },
+                                    ]}
+                                    layout={{width: width - 120, height: 580, title: 'Interest Over Time'}}
+                                />
+                            )
+                        }
+                        {
+                            data.related_topics && (
+                                <Plot
+                                    data={[
+                                        {
+                                            type: 'bar',
+                                            x: [...data.related_topics.top.map(topic => topic.topic)],
+                                            y: [...data.related_topics.top.map(topic => topic.score)]
+                                        },
+                                    ]}
+                                    layout={{width: width - 120, height: 580, title: 'Related Topics Top'}}
+                                />
+                            )
+                        }
+                        {
+                            data.interest_by_region && (
+                                <Plot
+                                    data={[
+                                        {
+                                            type: 'choropleth',
+                                            locationmode: 'country names',
+                                            locations: [...data.interest_by_region.map(region => region.region)],
+                                            z: [...data.interest_by_region.map(region => region.score)],
+                                            text: [...data.interest_by_region.map(region => region.region)],
+                                            autocolorscale: true
+                                        },
+                                    ]}
+                                    layout={{width: width - 120, height: 580, title: 'Interest By Region',
+                                        geo: {
+                                            projection: {
+                                                type: 'robinson'
+                                            }
+                                        }}}
+                                />
+                            )
+                        }
+
                     </section>
                 ) : (
                     <Segment>
