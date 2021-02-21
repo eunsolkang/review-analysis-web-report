@@ -26,6 +26,11 @@ The "trop.er" provides web report services that analyzes review data and visuali
 ### Expected Effects
 Through the insights derived from the review data analysis, businesses can respond to their consumers in an appropriate manner that will contribute to their business image. A quick and precise response to the consumers’ feedbacks not only attract new consumers to the brand but also coverts normal consumers to loyal ones, thus adding to the company’s efforts for expanding the business. However, trop.er does not stop there. Provided trend reports will enable the firms to catch up with the ever-changing trend in the e-commerce market and keep up with the overall consumer need. Cooperation with consultant expertise will help businesses to diagnose their current situation in a critical manner, and provide guidelines that contribute to one’s business model revision. 
 
+
+## Service Flow
+<img src="assets/service flow.png" width="100%" alt="service flow" />
+
+
 ## Team Members
 We made a ✨[collaboration guide](collaborationGuide.md)✨ and collaborated according to the collaboration guide.
 
