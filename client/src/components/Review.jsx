@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Plot from 'react-plotly.js';
+import {baseURL, getReviewAnalysis} from "../api";
+import {Dimmer, Image, Loader, Segment} from "semantic-ui-react";
 
 const ReviewBlock = styled.div`
     h3{
       color: #222;
+    }
+    .segment{
+      height: 340px;
     }
     section{
       display: flex;
@@ -34,31 +39,55 @@ const ReviewBlock = styled.div`
 `;
 
 const Review = () => {
+    const [data, setData] = useState();
+    const [total, setTotal] = useState();
+    useEffect(()=>{
+        getData();
+    }, []);
+
+    const getData = async () => {
+        const token = '2a04dc20-7333-11eb-ae9e-758a5443ae76';
+        const res = await getReviewAnalysis({token});
+        setData(res.data);
+    }
+
     return (
         <ReviewBlock>
             <h3>
                 Pos / Neg Review (Analysis)
             </h3>
-            <section>
-                <article>
-                    <h4>
-                        Overall
-                    </h4>
-                    <img src={'/img/wordcloud1.png'}/>
-                </article>
-                <article>
-                    <h4>
-                        Negative Words
-                    </h4>
-                    <img src={'/img/wordcloud2.png'}/>
-                </article>
-                <article>
-                    <h4>
-                        Positive Words
-                    </h4>
-                    <img src={'/img/wordcloud3.png'}/>
-                </article>
-            </section>
+            {
+                data ? <section>
+                    <article>
+                        <h4>
+                            Overall
+                        </h4>
+                        <img src={baseURL + data.keyword_cloud}/>
+                    </article>
+                    <article>
+                        <h4>
+                            Negative Words
+                        </h4>
+                        <img src={baseURL +  data.positive_keyword_cloud}/>
+                    </article>
+                    <article>
+                        <h4>
+                            Positive Words
+                        </h4>
+                        <img src={baseURL + data.negative_keyword_cloud}/>
+                    </article>
+                </section> : (
+                    <Segment>
+                        <Dimmer active inverted>
+                            <Loader>Loading</Loader>
+                        </Dimmer>
+                        <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
+                        <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
+
+                    </Segment>
+                )
+            }
+
         </ReviewBlock>
     )
 }

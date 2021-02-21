@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
+import {getKeyword, getReviewAnalysis} from "../api";
+import {Dimmer, Image, Loader, Segment} from "semantic-ui-react";
 const KeywordBlock = styled.div`
     margin-top: 2rem; 
     h3{
@@ -51,120 +53,65 @@ const KeywordBlock = styled.div`
     .keyword-item + .keyword-item{
       margin-left: 2rem;
     }
-    
+    .segment{
+      height: 280px;
+    }
 `;
 
-const keywordData = {
-    "fit": [
-        {
-            "id": 9469,
-            "sentence": "He is 16 and 6 foot 3, so if you are ordering for someone tall be cautious",
-            "sentiment": "0"
-        },
-        {
-            "id": 9946,
-            "sentence": "Fit great",
-            "sentiment": "1"
-        },
-        {
-            "id": 10509,
-            "sentence": "The shirt fits Perfect",
-            "sentiment": "1"
-        },
-        {
-            "id": 10882,
-            "sentence": "remember to size up to make a shirt not feel skin tight 2-3\" for tighter fit, 4 - 5 regular fit, 6+ baggy",
-            "sentiment": "0"
-        },
-        {
-            "id": 1443,
-            "sentence": "It worked",
-            "sentiment": "0"
-        }
-    ],
-    "color": [
-        {
-            "id": 1427,
-            "sentence": "Great shirt - bought it for my husband for a wedding, it wasn_ see-thru and a great color",
-            "sentiment": "1"
-        },
-        {
-            "id": 5970,
-            "sentence": "Great purchase, materials great, husband is very happy",
-            "sentiment": "1"
-        },
-        {
-            "id": 10346,
-            "sentence": "This came directly from Amazon, in original packaging",
-            "sentiment": "0"
-        },
-        {
-            "id": 5250,
-            "sentence": "A bit clearly wrinkled when it arrived, just from the folds",
-            "sentiment": "2"
-        },
-        {
-            "id": 6623,
-            "sentence": "Beautiful color well-made husband looks great in it",
-            "sentiment": "1"
-        }
-    ],
-    "material": [
-        {
-            "id": 2386,
-            "sentence": "Quality feel",
-            "sentiment": "1"
-        },
-        {
-            "id": 8837,
-            "sentence": "Very comfortable, easy to wash with minimal ironing",
-            "sentiment": "1"
-        },
-        {
-            "id": 7988,
-            "sentence": "Did not like material",
-            "sentiment": "2"
-        },
-        {
-            "id": 11435,
-            "sentence": "Fabric is kinda thick",
-            "sentiment": "0"
-        },
-        {
-            "id": 7549,
-            "sentence": "excellent t-shirt",
-            "sentiment": "1"
-        }
-    ]
-}
 const Keyword = () => {
+    const category = 'fashion';
+    const productType = 'shirt';
+
+    const [data, setData] = useState();
+    useEffect(()=>{
+        getData();
+    }, []);
+
+
+    const getData = async () => {
+        const token = '2a04dc20-7333-11eb-ae9e-758a5443ae76';
+        const res = await getKeyword({token, category, productType});
+        setData(res.data.relevant_reviews);
+    }
+
     return (
         <KeywordBlock>
             <h3>
                 Keyword
             </h3>
-            <section>
-                {
-                    Object.entries(keywordData).map((keyword, j) => {
-                        return(
-                            <div className={'keyword-item'} key={j}>
-                                <h3 className={'title'}>
-                                    #{keyword[0]}
-                                </h3>
-                                {
-                                    keyword[1].map((item, i) => {
-                                        return (
-                                            <div key={i + '' + j} className={`sentence-item ${item.sentiment === "2" ? "negative" : item.sentiment === "1" ? "positive" : "normal"}`}>
-                                                {item.sentence}
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        )
-                    })
-                }
-            </section>
+            {
+                data ? (
+                    <section>
+                        {
+                            Object.entries(data).map((keyword, j) => {
+                                return(
+                                    <div className={'keyword-item'} key={j}>
+                                        <h3 className={'title'}>
+                                            #{keyword[0]}
+                                        </h3>
+                                        {
+                                            keyword[1].map((item, i) => {
+                                                return (
+                                                    <div key={i + '' + j} className={`sentence-item ${item.sentiment === 2 ? "negative" : (item.sentiment === 1 ? "positive" : "normal")}`}>
+                                                        {item.sentence}
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
+                    </section>
+                ): (
+                    <Segment>
+                        <Dimmer inverted active>
+                            <Loader>Loading</Loader>
+                        </Dimmer>
+                        <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
+                    </Segment>
+                )
+            }
         </KeywordBlock>
     )
 }
