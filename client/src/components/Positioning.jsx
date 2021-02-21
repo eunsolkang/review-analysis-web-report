@@ -44,7 +44,8 @@ const Positioning = () => {
                 Positioning
             </h3>
             <section>
-                <img src={'img/position.png'}/>
+                <img src={'img/' +
+                'position.png'}/>
                 <div className={'background'}>
                     This function is under development.
                 </div>
