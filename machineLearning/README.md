@@ -63,7 +63,7 @@ Sentiment labeling of each review was done as a preprocessing.
  
  Label sentiment as ```0: neutral / 1: positive / 2: negative```.
  
-Use sequential model and add LSTM layers to train data. There should be 3 outputs at the end. Therefore I added a layer with 3 outputs at the end.
+Use sequential model and add LSTM layers to train model. There should be 3 outputs at the end. Therefore I added a layer with 3 outputs at the end.
 
 Since it is a single label multi classification, softmax is used as the activation function of the last layer, and categorical_crossentropy is used as the loss function. 
 
